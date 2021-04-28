@@ -1,5 +1,13 @@
+/*
+ * @Author: duxinyue
+ * @Date: 2021-04-27 15:13:38
+ * @LastEditors: duxinyue
+ * @LastEditTime: 2021-04-28 10:18:10
+ * @FilePath: \app1\src\components\notFound.js
+ */
+
 import React from 'react';
-import img404  from "../style/imgs/404.jpg"
+import "../style/css/style.css"
 class NotFound extends React.Component {
     state = {
         animated: '',
@@ -9,16 +17,7 @@ class NotFound extends React.Component {
     };
     render() {
         return (
-            <div
-                className="center"
-                style={{ height: '100%', background: '#ececec', overflow: 'hidden' }}
-            >
-                <img
-                    src={img404} alt="404"
-                    className={`animated swing ${this.state.animated}`}
-                    onMouseEnter={this.enter}
-                />
-            </div>
+            <div className="notFound"></div>
         );
     }
 }

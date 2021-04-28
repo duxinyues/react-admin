@@ -1,13 +1,18 @@
+/*
+ * @Author       : duxinyue
+ * @Date         : 2021-04-27 09:31:03
+ * @LastEditors  : duxinyue
+ * @LastEditTime : 2021-04-28 10:40:45
+ * @FilePath     : \app1\src\App.js
+ */
 import React, { useState } from "react"
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
 } from '@ant-design/icons';
-import SiderCustom from "./components/sliderMenu"
+import SiderCustom from "./components/sliderMenu";
+import ContentRouter  from "./config/route"
 import "./App.css"
 const { Header, Sider, Content } = Layout;
 function App() {
@@ -18,19 +23,7 @@ function App() {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        {/* <div className="logo" >读心悦</div> */}
         <SiderCustom />
-        {/* <Menu mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1" icon={<UserOutlined />}>
-            nav 1
-          </Menu.Item>
-          <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-            nav 2
-          </Menu.Item>
-          <Menu.Item key="3" icon={<UploadOutlined />}>
-            nav 3
-          </Menu.Item>
-        </Menu> */}
       </Sider>
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
@@ -47,7 +40,7 @@ function App() {
 
           }}
         >
-          Content
+          <ContentRouter auth="auth" />
         </Content>
       </Layout>
     </Layout>

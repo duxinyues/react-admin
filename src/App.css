@@ -1,6 +1,6 @@
-.trigger{
+.trigger {
   padding: 0 16px;
 }
-.ant-layout{
-  height: 100%;
+.ant-layout {
+  min-height: 100vh;
 }
