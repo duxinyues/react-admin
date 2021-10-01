@@ -1,10 +1,17 @@
+/*
+ * @FileName: 
+ * @Author: duxinyue
+ * @Date: 2021-04-27 11:40:23
+ * @LastEditors: duxinyue
+ * @LastEditTime: 2021-05-19 15:48:40
+ * @FilePath: \app1\src\components\sliderMenu.js
+ * @Description: 
+ */
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { menus } from "../config/menu"
 function Slider() {
     const renderSubMenu = (item) => {
-        console.log("90")
         return (
             <Menu.SubMenu
                 key={item.key}
@@ -19,7 +26,6 @@ function Slider() {
         );
     }
     const renderMenuItem = (item) => {
-        console.log("100")
         return <Menu.Item key={item.key}>
             <Link to={(item.route || item.key) + (item.query || '')}>
                 <span className="nav-text">{item.title}</span>
@@ -28,7 +34,7 @@ function Slider() {
     }
     return  <div >
                 {menus.map((item) => {
-                                return  <Menu mode="inline" selectable="true">
+                                return  <Menu mode="inline" key={item.key} >
                                             {item.subs
                                                 ? renderSubMenu(item)
                                                 : renderMenuItem(item)}

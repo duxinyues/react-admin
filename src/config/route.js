@@ -1,13 +1,13 @@
 /*
  * @Author       : duxinyue
  * @Date         : 2021-04-27 16:36:08
- * @LastEditors  : duxinyue
- * @LastEditTime : 2021-04-28 10:46:46
- * @FilePath     : \app1\src\config\route.js
+ * @LastEditors: duxinyue
+ * @LastEditTime: 2021-05-19 15:21:50
+ * @FilePath: \app1\src\config\route.js
  */
 
 import React  from "react";
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch,withRouter } from 'react-router-dom';
 import RouteWrapper  from "./routeWrapper";
 import AllComponents from "../components/AllComponents"
 import {menus} from "./menu"
@@ -34,6 +34,7 @@ function ContentRouter(props){
     return  <Switch>
     {
         menus.map((key)=>{
+            console.log(key)
             const Component = key.component && AllComponents[key.component];
             return (
                 <Route
@@ -56,4 +57,4 @@ function ContentRouter(props){
 }
 
 
-export  default ContentRouter
+export  default withRouter(ContentRouter) 
