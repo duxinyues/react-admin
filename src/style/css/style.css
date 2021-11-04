@@ -1,8 +1,8 @@
 /*
  * @Author       : duxinyue
  * @Date         : 2021-04-28 09:35:38
- * @LastEditors: duxinyue
- * @LastEditTime: 2021-04-28 15:57:14
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-02 00:27:18
  * @FilePath: \app1\src\style\css\style.css
  */
 .notFound {
@@ -13,7 +13,6 @@
 }
 
 .editor-content {
-    border: 1px solid red;
     display: flex;
     height: calc(100vh - 200px);
 }
@@ -36,5 +35,5 @@
 
 pre{
     overflow-x: scroll;
-    border: 1px solid red;
+    background-color: antiquewhite;
 }
