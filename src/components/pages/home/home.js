@@ -1,6 +1,7 @@
 /*
  * @Author: duxinyue
  * @Date: 2021-04-27 17:44:40
+<<<<<<< HEAD
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2021-11-09 23:55:03
  * @FilePath: \app1\src\components\pages\home\home.js
@@ -32,7 +33,27 @@ function Home() {
             <li><ChildC text={textC} /></li>
         </ul>
     </div>
+=======
+ * @LastEditors: duxinyue
+ * @LastEditTime: 2021-05-19 15:27:25
+ * @FilePath: \app1\src\components\pages\home\home.js
+ */
+import  React, { useEffect } from "react"
+import  {connect}  from  "react-redux"
+import { withRouter } from "react-router-dom";
+import {fetchPost}  from "../../../actions/actions"
+function Home(props){
+    console.log(props)
+    useEffect(()=>{
+        props.fetchPost()
+    },[])
+    return <div>首页</div>
+>>>>>>> 545987219298e17b9b7ab872922c34976ad69150
 }
 
-
-export default Home 
+const  mapStateToProps=(state)=>{
+    return {
+        homeData:state.posts
+    }
+}
+export default connect(mapStateToProps,{fetchPost})(withRouter(Home)) 

@@ -1,9 +1,9 @@
 /*
  * @Author       : duxinyue
  * @Date         : 2021-04-27 16:23:36
- * @LastEditors  : duxinyue
- * @LastEditTime : 2021-04-28 10:58:26
- * @FilePath     : \app1\src\config\routeWrapper.js
+ * @LastEditors: duxinyue
+ * @LastEditTime: 2021-05-19 13:26:11
+ * @FilePath: \app1\src\config\routeWrapper.js
  */
 
 import {useMemo}  from "react";
@@ -22,7 +22,6 @@ const RouteWrapper = (props) => {
         };
         return queryString.parse(matchQuery(queryReg));
     }, [restProps.location.search]);
-    console.log(queryMemo)
     const mergeQueryToProps = () => {
         const queryReg = /\?\S*/g;
         const removeQueryInRouter = (restProps, reg) => {
