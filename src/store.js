@@ -2,8 +2,8 @@
  * @FileName: 
  * @Author: duxinyue
  * @Date: 2021-05-19 12:38:28
- * @LastEditors: duxinyue
- * @LastEditTime: 2021-05-19 12:49:39
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-11-14 00:29:39
  * @FilePath: \app1\src\store.js
  * @Description: 
  */
@@ -12,13 +12,13 @@ import {
     applyMiddleware,
     compose
 } from "redux";
-import thunk from "redux-thunk";
+// import thunk from "redux-thunk";
 
 import rootReducer from "./reducers/index"
 
 const initialState = {};
 
-const middleware = [thunk];
+const middleware = [];
 
 const store = createStore(rootReducer, initialState, compose(
     applyMiddleware(...middleware),
