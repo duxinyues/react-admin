@@ -2,13 +2,13 @@
  * @Author: duxinyue
  * @Date: 2021-04-27 17:44:40
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-22 23:05:39
+ * @LastEditTime: 2021-11-23 23:08:55
  * @FilePath: \app1\src\components\pages\home\home.js
  */
 import { useState } from "react"
-import ChildA from "./ChildA";
-import ChildB from "./ChildB";
-import ChildC from "./ChildC";
+// import ChildA from "./ChildA";
+// import ChildB from "./ChildB";
+// import ChildC from "./ChildC";
 import ComD from "./ChildD";
 function Home() {
     // const [textA, setTextA] = useState("A组件的文本");

@@ -2,8 +2,8 @@
  * @FileName: 
  * @Author: duxinyue
  * @Date: 2021-05-19 12:24:44
- * @LastEditors: duxinyue
- * @LastEditTime: 2021-05-19 12:33:41
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-11-23 23:12:41
  * @FilePath: \app1\src\reducers\reducer1.js
  * @Description: 
  */
@@ -23,7 +23,7 @@ const initialState = {
  * @param {*} action 
  * @returns 
  */
-export default function (state = initialState, action) {
+export default function  postReducer(state = initialState, action) {
     switch (action.type) {
         case FETCH_POST:
             return {

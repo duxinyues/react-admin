@@ -2,11 +2,11 @@
  * @Author       : duxinyue
  * @Date         : 2021-04-28 11:02:51
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-02 02:36:46
+ * @LastEditTime: 2021-11-23 23:43:31
  * @FilePath     : \app1\src\components\pages\editor\editor.js
  */
 import React, { useEffect, useState } from 'react'
-import { Button } from "antd"
+import { Button, Input, message } from "antd"
 // 引入编辑器组件
 import BraftEditor from 'braft-editor'
 import CodeHighlighter from "braft-extensions/dist/code-highlighter"
@@ -22,7 +22,9 @@ BraftEditor.use(CodeHighlighter({
 export default function Editor() {
   const [editorState, setEditorState] = useState(BraftEditor.createEditorState());
   const [defualtContent, setDefualtContent] = useState("<div></div>");
-
+  const [title, setTitle] = useState();
+  const [desc, setDesc] = useState();
+  const [cate, setCate] = useState();
   useEffect(() => {
     // 假设此处从服务端获取html格式的编辑器内容
     // const htmlContent = await fetchEditorContent()
@@ -34,31 +36,64 @@ export default function Editor() {
     const htmlContent = editorState.toHTML();
     setEditorState(editorState);
     setDefualtContent(htmlContent)
-
   }
+  // 编辑保存
   const submitContent = () => {
     // 在编辑器获得焦点时按下ctrl+s会执行此方法
     // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
     const htmlContent = editorState.toHTML();
     console.log(htmlContent)
   }
+  const onChangeInput = (type, value) => {
+    console.log("-----", type, value)
+    switch (type) {
+      case 'title':
+        setTitle(value.target.value); break;
+      case 'cate':
+        setCate(value.target.value); break;
+      case 'desc':
+        setDesc(value.target.value); break;
+      default:
+        break;
+    }
+  }
   const onRelease = () => {
-    const str = editorState.toHTML()
+    const str = editorState.toHTML();
+    const empty = [title, desc, cate].every(el => el && el !== '')
+    if (!empty) {
+      message.warning("请完善文章信息");
+      return
+    }
     const parman = {
       content: str,
+      title: title,
+      cate:cate,
+      desc:desc,
     }
     console.log(JSON.stringify(parman))
-    fetch("http://127.0.0.1:3003/addArticles", {
+    fetch("http://127.0.0.1:3003/atricle/add", {
       method: "POST",
-      body: JSON.stringify(parman)
+      body: JSON.stringify(parman),
+      // header:{
+      //   'Content-type':'application/x-www-form-urlencoded'
+      //   // 'Content-type':'application/json'
+      // }
     })
-      .then(res => { return res.json() })
+      // .then(res => { return res.json() })
       .then(res => {
         console.log(res)
       })
   }
   return <React.Fragment>
-    <div>标题</div>
+    <div className='article-row'><span>标题: </span> <div><Input onChange={(el) => {
+      onChangeInput('title', el)
+    }} /></div> </div>
+    <div className='article-row'><span>分类: </span>  <div><Input onChange={(el) => {
+      onChangeInput('cate', el)
+    }} /></div> </div>
+    <div className='article-row'><span>摘要: </span>  <div><Input onChange={(el) => {
+      onChangeInput('desc', el)
+    }} /></div> </div>
     <div className="save-btn">
       <Button type="primary" onClick={onRelease}>发布</Button>
     </div>
