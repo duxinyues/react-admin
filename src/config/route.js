@@ -1,8 +1,8 @@
 /*
  * @Author       : duxinyue
  * @Date         : 2021-04-27 16:36:08
- * @LastEditors: duxinyue
- * @LastEditTime: 2021-05-19 15:21:50
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-11-24 22:40:22
  * @FilePath: \app1\src\config\route.js
  */
 

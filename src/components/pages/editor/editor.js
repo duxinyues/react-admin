@@ -2,7 +2,7 @@
  * @Author       : duxinyue
  * @Date         : 2021-04-28 11:02:51
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-23 23:43:31
+ * @LastEditTime: 2021-11-24 22:34:45
  * @FilePath     : \app1\src\components\pages\editor\editor.js
  */
 import React, { useEffect, useState } from 'react'
@@ -64,22 +64,14 @@ export default function Editor() {
       message.warning("请完善文章信息");
       return
     }
-    const parman = {
-      content: str,
-      title: title,
-      cate:cate,
-      desc:desc,
-    }
-    console.log(JSON.stringify(parman))
-    fetch("http://127.0.0.1:3003/atricle/add", {
+    fetch(`http://127.0.0.1:3003/atricle/add?title=${title}&cate=${cate}&desc=${desc}&content=${str}`, {
       method: "POST",
-      body: JSON.stringify(parman),
-      // header:{
-      //   'Content-type':'application/x-www-form-urlencoded'
+      // headers: {
+      //   'Content-type': 'application/x-www-form-urlencoded'
       //   // 'Content-type':'application/json'
       // }
     })
-      // .then(res => { return res.json() })
+      .then(res => { return res.json() })
       .then(res => {
         console.log(res)
       })
